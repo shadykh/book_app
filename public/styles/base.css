@@ -1,0 +1,44 @@
+header{
+    padding: 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    background-image: url(https://cdn.pixabay.com/photo/2015/07/27/19/12/library-863148_1280.jpg);
+    width: 100%;
+    height: 8%;
+    background-size: cover;
+    align-items: center;
+}
+
+header h1 {
+    background: azure;
+    opacity: 0.5;
+    padding: 5px;
+}
+header nav {
+    background: azure;
+    opacity: 0.5;
+    padding: 5px;
+}
+header nav a {
+    padding: 10px;
+}
+.main-img{
+    width: 100%;
+}
+
+footer{
+    padding: 5px 5px;
+    display: flex;
+    background-image: url(https://cdn.pixabay.com/photo/2015/07/27/19/12/library-863148_1280.jpg);
+    width: 100%;
+    height: 8%;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    background: azure;
+    opacity: 0.5;
+    padding: 5px;
+}
