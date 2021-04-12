@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shows</title>
+</head>
+<body>
+    <h1>Shows</h1>
+    <% allBooks.forEach(book=>{ %> 
+        <div>
+            <img src="<%= book.imageLinks %>" alt="">
+            <h2><%= book.title %></h2>
+            <h3><%= book.authors %></h3>
+            <p><%= book.textSnippet %></p>
+        </div>
+    <% }) %> 
+</body>
+</html>
