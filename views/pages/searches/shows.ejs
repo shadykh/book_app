@@ -7,12 +7,15 @@
 </head>
 <body>
     <h1>Shows</h1>
-    <% allBooks.forEach(book=>{ %> 
+    <% allBooks.forEach((book, idx)=>{ %> 
         <div>
             <img src="<%= book.imageLinks %>" alt="">
-            <h2><%= book.title %></h2>
-            <h3><%= book.authors %></h3>
-            <p><%= book.textSnippet %></p>
+            <h3><%= book.title %></h3>
+            <h4><%= book.authors %></h4>
+            <p><%= book.description %></p>
+            <form action="/books/<%= idx %>" method="POST">
+                <button>Select this book</button>
+            </form>
         </div>
     <% }) %> 
 </body>

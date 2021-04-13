@@ -4,14 +4,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serach</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <h1>Search</h1>
-    <form action="/searches" method="POST">
-        <input type="text" name="searchWord" placeholder="Enter a title or author"> 
-        <input type="checkbox" name="title" placeholder="title">Title
-        <input type="checkbox" name="author" placeholder="author">Author
-        <button>Serach the Google Books API</button>
-    </form>
+    <header>
+        <h1>Best Books!</h1> 
+        <nav>
+            <a href="/"> Home</a>
+            <a href="/searches/new"> Serach A book!</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Serach by Title or Author</h2>
+        <form class="form-book" action="/searches" method="POST">
+            <input type="text" name="searchWord" placeholder="Enter a title or author"> 
+                <input type="radio" name="serachMthod" placeholder="title" value="intitle">Title
+                <input type="radio" name="serachMthod" placeholder="author" value="inauthor">Author
+            <button>Serach the Google Books API</button>
+        </form>
+    </main>
+    <footer>
+       <p>All rightes Reserved 2021 &copy;</p> 
+    </footer>
 </body>
 </html>
