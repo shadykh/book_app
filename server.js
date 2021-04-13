@@ -110,6 +110,7 @@ function insertBook(req, res) {
 
 function moreAboutBook(req, res) {
     console.log(req);
+
     // let SQL = `SELECT * FROM books;`;
     // client.query(SQL)
     //     .then(results => {
