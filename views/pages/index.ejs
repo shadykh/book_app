@@ -1,25 +1,26 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/styles/style.css"">
-</head>
+
+    <%- include('../layout/head') %>
+
 <body>
-    <header>
-        <h1>Best Books!</h1> 
-        <nav>
-            <a href="/"> Home</a>
-            <a href="/searches/new"> Serach the Google book API</a>
-        </nav>
-    </header>
-    
+
+    <%- include('../layout/header') %> 
+
     <main>
 
+        <% taskResults.forEach(book=>{ %> 
+            <div>
+                <img src='<%= book.imagelinks %>' alt="">
+                <h3><%= book.title %></h3>
+                <h4><%= book.authors %></h4>
+                <p><%= book.description %></p>
+                <button type="button"><a href="/books/<%=book.id%>">View Details</a> </button>
+            </div>
+        <% }) %> 
+
     </main>
-    <footer>
-       <p>All rightes Reserved 2021 &copy;</p> 
-    </footer>
+
+    <%- include('../layout/footer') %>
+    
 </body>
 </html>
