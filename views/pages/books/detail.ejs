@@ -9,12 +9,12 @@
     </div>
     <div>
     <form action="/deleteBook/<%=book.id%>?_method=delete" method="post">
-        <button id="btnBookShows">Delete Task</button>
+        <button id="btnBookShows">Delete Book</button>
      </form>
 
-     <button id="btnBookShowsUpdate">Update</button>
+     <button id="btnBookShowsUpdate">Update Book</button>
      <section id="updateForm" class='form-style-6'>
-       <h3>Update Task From</h3>
+       <h3>Update Book From</h3>
        <form id="updateForm" action="/updateBook/<%=book.id%>?_method=put" method="post">
             <input type="text" name="imageLinks" value=' <%= book.imagelinks  %> '>
             <input type="text" name="title" value=' <%= book.title  %> '>
