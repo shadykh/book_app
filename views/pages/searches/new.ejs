@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
     <%- include('../../layout/head') %>
@@ -10,11 +11,11 @@
     <main>
 
 
-        <h2>Serach by Title or Author</h2>
-        <form class="form-book" action="/searches" method="POST">
-            <input type="text" name="searchWord" placeholder="Enter a title or author"> 
-            <input type="radio" name="serachMthod" placeholder="title" value="intitle">Title
-            <input type="radio" name="serachMthod" placeholder="author" value="inauthor">Author
+        <h2 id="h3Index">Serach by Title or Author</h2>
+        <form class="form-style-6" action="/searches" method="POST">
+            <input type="text" name="searchWord" placeholder="Enter a title or author">
+            <p id="newFormP">Title</p><input type="radio" name="serachMthod" placeholder="title" value="intitle">
+            <p id="newFormP2">Author</p><input type="radio" name="serachMthod" placeholder="author" value="inauthor">
             <button>Serach the Google Books API</button>
         </form>
 

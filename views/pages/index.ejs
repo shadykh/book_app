@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
     <%- include('../layout/head') %>
@@ -8,14 +9,14 @@
 
     <main>
 
-        <h3> Book = <%= numberOfBooks %></h3>
+        <h3 id="h3Index"> There are <%= numberOfBooks %> books in your shelf</h3>
         <% taskResults.forEach(book=>{ %> 
-            <div>
+            <div id="serachDiv">
                 <img src='<%= book.imagelinks %>' alt="">
-                <h3><%= book.title %></h3>
-                <h4><%= book.authors %></h4>
-                <p><%= book.description %></p>
-                <button type="button"><a href="/books/<%=book.id%>">View Details</a> </button>
+                <h3 id="h3Book"><%= book.title %></h3>
+                <h4 id="h4Book"><%= book.authors %></h4>
+                <p id="pBook"><%= book.isbn %></p>
+                <button id="btnBook" type="button"><a id="aBook" href="/books/<%=book.id%>">View Details</a> </button>
             </div>
         <% }) %> 
 
