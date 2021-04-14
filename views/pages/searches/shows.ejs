@@ -1,22 +1,35 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shows</title>
-</head>
+
+    <%- include('../../layout/head') %>
+
 <body>
-    <h1>Shows</h1>
-    <% allBooks.forEach((book, idx)=>{ %> 
-        <div>
-            <img src="<%= book.imageLinks %>" alt="">
-            <h3><%= book.title %></h3>
-            <h4><%= book.authors %></h4>
-            <p><%= book.description %></p>
-            <form action="/books/<%= idx %>" method="POST">
-                <button>Select this book</button>
-            </form>
-        </div>
-    <% }) %> 
+
+    <%- include('../../layout/header') %>
+
+    <main>
+
+        <h1>Shows</h1>
+        <% allBooks.forEach((book, idx)=>{ %> 
+            <div>
+                <img src="<%= book.imageLinks %>" alt="">
+                <h3><%= book.title %></h3>
+                <h4><%= book.authors %></h4>
+                <p><%= book.description %></p>
+                <form action="/books" method="POST">
+                    <input name="idx" value="<%= idx %>" class="hidden">
+                    <input name="title" value="<%= book.title %>" class="hidden">
+                    <input name="author" value="<%= book.authors %>" class="hidden">
+                    <input name="description" value="<%= book.description %>" class="hidden">
+                    <input name="img" value="<%= book.imageLinks %>" class="hidden">
+                    <button>Select this book</button>
+                </form>
+            </div>
+        <% }) %> 
+
+    </main>
+
+
+    <%- include('../../layout/footer') %>
+
 </body>
 </html>
