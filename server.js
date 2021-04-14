@@ -42,7 +42,7 @@ function renderIndex(req, res) {
     let SQL = `SELECT * FROM books;`;
     client.query(SQL)
         .then(results => {
-            res.render('pages/index', { taskResults: results.rows })
+            res.render('pages/index', { taskResults: results.rows, numberOfBooks: results.rows.length })
         })
         .catch(err => {
             res.render('pages/error', { errors: err });
