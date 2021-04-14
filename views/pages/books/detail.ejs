@@ -1,9 +1,29 @@
-<h1>Shows2</h1>
 <% taskResults.forEach((book, idx)=>{ %> 
+    <div id="detailDiv">
+        <img src=" <%= book.imagelinks %> " alt="">
+        <h3 id="h3Book"><%= book.title %></h3>
+        <h4 id="h4Book"><%= book.authors %></h4>
+        <p id="pBook"><%= book.isbn %></p>
+        <p id="pBookDetailes"><%= book.description %></p>
+        <p id="pBook"><%= book.categories %></p>
+    </div>
     <div>
-        <img src="<%= book.imageLinks %>" alt="">
-        <h3><%= book.title %></h3>
-        <h4><%= book.authors %></h4>
-        <p><%= book.description %></p>
+    <form action="/deleteBook/<%=book.id%>?_method=delete" method="post">
+        <button id="btnBookShows">Delete Task</button>
+     </form>
+
+     <button id="btnBookShowsUpdate">Update</button>
+     <section id="updateForm" class='form-style-6'>
+       <h3>Update Task From</h3>
+       <form id="updateForm" action="/updateBook/<%=book.id%>?_method=put" method="post">
+            <input type="text" name="imageLinks" value=' <%= book.imagelinks  %> '>
+            <input type="text" name="title" value=' <%= book.title  %> '>
+            <textarea name="description" cols="30" rows="10"><%= book.description  %></textarea>
+            <input type="text" name="isbn" value="<%= book.isbn  %>">
+            <input type="text" name="authors" value="<%= book.authors  %>">
+            <input type="text" name="categories" value="<%= book.categories  %>">
+            <button  type="submit">Update Task</button>
+        </form>
+     </section>
     </div>
 <% }) %> 

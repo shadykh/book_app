@@ -6,6 +6,8 @@ const express = require('express');
 
 const superagent = require('superagent');
 
+const methodOverride = require('method-override')
+
 const pg = require('pg');
 
 const PORT = process.env.PORT || 4060;
@@ -17,6 +19,8 @@ server.set('view engine', 'ejs');
 server.use(express.static('./public'))
 
 server.use(express.urlencoded({ extended: true }));
+
+server.use(methodOverride('_method'));
 
 const client = new pg.Client(process.env.DATABASE_URL);
 
@@ -35,6 +39,9 @@ server.post('/books', insertBook);
 
 server.get('/books/:id', moreAboutBook);
 
+server.put('/updateBook/:id', updateBook);
+
+server.delete('/deleteBook/:id', deleteBook);
 
 // Functions
 function renderIndex(req, res) {
@@ -65,7 +72,8 @@ function handleNewSerach(req, res) {
     superagent.get(googleBooksURL)
         .then(googleBooksData => {
 
-            // console.log('------------------------------insideSuper-------------------')
+            //onsole.log('------------------------------insideSuper-------------------')
+            //console.log('title', googleBooksData.body.items[5].volumeInfo);
             // console.log('title', googleBooksData.body.items[0].volumeInfo.title);
             // console.log('authors', googleBooksData.body.items[0].volumeInfo.authors);
             // console.log('imageLinks', googleBooksData.body.items[0].volumeInfo.imageLinks.thumbnail);
@@ -75,12 +83,14 @@ function handleNewSerach(req, res) {
                 const newBook = new Book(
                     val.volumeInfo.title,
                     val.volumeInfo.authors,
+                    val.volumeInfo.industryIdentifiers,
                     val.volumeInfo.imageLinks,
-                    val.volumeInfo.description
+                    val.volumeInfo.description,
+                    val.volumeInfo.categories
                 );
                 return newBook;
             });
-            res.render('pages/searches/shows', { allBooks: Book.all });
+            res.render('pages/searches/shows', { allBooks: data });
         })
 
         .catch(error => {
@@ -94,9 +104,9 @@ function handleNewSerach(req, res) {
 //http://localhost:4042/books
 function insertBook(req, res) {
     //console.log(req.body);
-    let { title, authors, imageLinks, description } = Book.all[req.body.idx];
-    let SQL = `INSERT INTO books (title, authors, imageLinks, description) VALUES ($1,$2,$3,$4) RETURNING *;`;
-    let safeValues = [title, authors, imageLinks, description];
+    let { title, authors, isbn, imageLinks, description, categories } = req.body;
+    let SQL = `INSERT INTO books (title, authors, isbn, imageLinks, description, categories) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *;`;
+    let safeValues = [title, authors, isbn, imageLinks, description, categories];
     client.query(SQL, safeValues)
         .then(result => {
             //console.log(result.rows[0].id)
@@ -107,7 +117,7 @@ function insertBook(req, res) {
 
 
 function moreAboutBook(req, res) {
-    console.log(req.params.id);
+    //console.log(req.params.id);
     let SQL = `SELECT * FROM books where id=${req.params.id};`;
     client.query(SQL)
         .then(results => {
@@ -119,14 +129,30 @@ function moreAboutBook(req, res) {
         })
 }
 
+function updateBook(req, res) {
+    let { title, authors, isbn, imageLinks, description, categories } = req.body;
+    let SQL = `UPDATE books SET title=$1, authors=$2, isbn=$3, imageLinks=$4, description=$5, categories=$6 WHERE id=$7;`;
+    let safeValues = [title, authors, isbn, imageLinks, description, categories, req.params.id];
+    client.query(SQL, safeValues)
+        .then(() => {
+            res.redirect(`/books/${req.params.id}`);
+        })
+}
 
+function deleteBook(req, res) {
+    let SQL = `DELETE FROM books WHERE id=$1;`;
+    let safeValues = [req.params.id];
+    client.query(SQL, safeValues)
+        .then(res.redirect('/'))
+}
 
-function Book(title, authors, imageLinks, description) {
-
+function Book(title, authors, isbn, imageLinks, description, categories) {
     this.title = (title) ? title : 'There is no availble title';
     this.authors = (authors) ? authors.join(', ') : 'There is no availble authors';
+    this.isbn = (isbn[0]) ? isbn[0].identifier : 'There is no availble ISBN';
     this.imageLinks = (imageLinks) ? imageLinks.thumbnail : 'https://i.imgur.com/J5LVHEL.jpg';
     this.description = (description) ? description : 'There is no availble description';
+    this.categories = (categories) ? categories[0] : 'There is no availble categories';
     Book.all.push(this);
 }
 Book.all = [];

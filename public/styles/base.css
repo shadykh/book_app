@@ -1,26 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  background: #3e3d3d;
+}
 header{
     padding: 5px 5px;
     display: flex;
     justify-content: space-between;
-    background-image: url(https://cdn.pixabay.com/photo/2015/07/27/19/12/library-863148_1280.jpg);
+    /*background-image: url(https://cdn.pixabay.com/photo/2015/07/27/19/12/library-863148_1280.jpg);*/
+    background: black;
     width: 100%;
     height: 8%;
     background-size: cover;
     align-items: center;
 }
-
+main{
+  width: 960px;
+  margin: auto;
+  text-align: center;
+  padding: 15px;
+}
 header h1 {
     background: azure;
     opacity: 0.5;
     padding: 5px;
+    border-radius: 15px;
+    font-size: 28px;
 }
 header nav {
-    background: azure;
+    /*background: azure;*/
     opacity: 0.5;
     padding: 5px;
+    font-size: 22px;
 }
 header nav a {
     padding: 10px;
+    color: white;
+    background: #575757;
+    border-radius: 18px;
+    text-decoration: none;
+}
+header nav a:hover {
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  background: #ffffff;
+  border-radius: 18px;
+  text-decoration: none;
 }
 .main-img{
     width: 100%;
@@ -33,7 +59,8 @@ header nav a {
 footer{
     padding: 5px 5px;
     display: flex;
-    background-image: url(https://cdn.pixabay.com/photo/2015/07/27/19/12/library-863148_1280.jpg);
+    /*background-image: url(https://cdn.pixabay.com/photo/2015/07/27/19/12/library-863148_1280.jpg);*/
+    background: black;
     width: 100%;
     height: 8%;
     background-size: cover;
@@ -45,72 +72,185 @@ footer p {
     background: azure;
     opacity: 0.5;
     padding: 5px;
-}
-/* The container */
-.container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
     font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
- 
-/* Hide the browser's default checkbox */
-.container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 100px;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius:50%;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
-    background-color: #2196F3;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
+    border-radius: 15px;
+}
+
+#serachDiv{
+  width: 200px;
+  margin: auto;
+  height: 420px;
+  float: left;
+  /*background-image: url(https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg);*/
+  background: #a8a8a88a;
+  margin: 10px 10px;
+  border-radius: 23px;
+  text-align: center;
+  padding: 46px 9px;
+  border: 3px solid black;
+}
+
+#serachDivShows{
+  width: 200px;
+  margin: auto;
+  height: 472px;
+  float: left;
+  /*background-image: url(https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg);*/
+  background: #a8a8a88a;
+  margin: 10px 10px;
+  border-radius: 23px;
+  text-align: center;
+  padding: 46px 9px;
+  border: 3px solid black;
+}
+img {
+  width: 155px;
+  height: 230px;
+  border: 4px solid black;
+}
+#pIndex{
+  overflow: scroll;
+}
+#h3Book{
+  width: 100%;
+  height: 49px;
+  text-align: center;
+  overflow: hidden;
+  padding: 5px 5px;
+  margin: 4px 0px;
+}
+#pBook{
+  padding: 5px;
+}
+#h4Book{
+  padding: 5px;
+}
+#aBook{
+  color: white;
+  text-decoration: none;
+  padding: 6px;
+  opacity: 0.6;
+}
+#aBook:hover{
+  color: rgb(252, 255, 74);
+  text-decoration: none;
+  padding: 6px;
+  opacity: 0.6;
+}
+#btnBook{
+  background: #00000099;
+  border-radius: 18px;
+  font-size: 18px;
+}
+#btnBookShows{
+  background: #00000099;
+  border-radius: 18px;
+  font-size: 18px;
+  padding: 5px;
+  margin: 5px;
+}
+#btnBookShows:hover{
+color: wheat;
+}
+#btnBookShowsUpdate{
+  background: #00000099;
+  border-radius: 18px;
+  font-size: 18px;
+  padding: 5px;
+  margin: 5px;
+}
+#btnBookShowsUpdate:hover{
+color: wheat;
+}
+#h3Index{
+  text-align: center;
+  border: 6px solid;
+  padding: 10px;
+  margin: 10px;
+  font-size: 27px;
+  background: #c0c0c078;
+}
+#pBookDetailes{
+  overflow: scroll;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  text-align: justify;
+}
+
+#detailDiv{
+  background: gray;
+    border-radius: 18px;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+}
+/**************************************************/
+.form-style-6{
+	font: 95% Arial, Helvetica, sans-serif;
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 16px;
+	background: #F7F7F7;
+}
+.form-style-6 h1{
+	background: #43D1AF;
+	padding: 20px 0;
+	font-size: 140%;
+	font-weight: 300;
+	text-align: center;
+	color: #fff;
+	margin: -16px -16px 16px -16px;
+}
+.form-style-6 input[type="text"],
+.form-style-6 input[type="radoio"],
+.form-style-6 textarea
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+	font: 95% Arial, Helvetica, sans-serif;
+}
+.form-style-6 input[type="text"]:focus,
+.form-style-6 input[type="raodio"]:focus,
+.form-style-6 textarea:focus
+{
+	box-shadow: 0 0 5px #020202;
+	padding: 3%;
+	border: 1px solid #43D1AF;
+}
+
+.form-style-6 input[type="submit"],
+.form-style-6 button{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+  background: #3e3d3d;
+  border-bottom: 2px solid #000000;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;	
+	color: #fff;
+  padding: 14px;
+  margin: 18px 0;
+}
+.form-style-6 input[type="submit"]:hover,
+.form-style-6 button:hover{
+	background: #7b7a7a;
+  color: #000000;
+}
+#hidden{
+  display: none;
+}

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
     <%- include('../../layout/head') %>
@@ -10,18 +11,21 @@
 
         <h1>Shows</h1>
         <% allBooks.forEach((book, idx)=>{ %> 
-            <div>
+            <div id="serachDivShows">
                 <img src="<%= book.imageLinks %>" alt="">
-                <h3><%= book.title %></h3>
-                <h4><%= book.authors %></h4>
-                <p><%= book.description %></p>
+                <h3 id="h3Book"><%= book.title %></h3>
+                <h4 id="h4Book"><%= book.authors %></h4>
+                <p id="pBook"><%= book.isbn %></p>
+                <p id="pBook"><%= book.categories %></p>
                 <form action="/books" method="POST">
-                    <input name="idx" value="<%= idx %>" class="hidden">
-                    <input name="title" value="<%= book.title %>" class="hidden">
-                    <input name="author" value="<%= book.authors %>" class="hidden">
-                    <input name="description" value="<%= book.description %>" class="hidden">
-                    <input name="img" value="<%= book.imageLinks %>" class="hidden">
-                    <button>Select this book</button>
+                    <input name="id" value="<%= book.id %>" id="hidden">
+                    <input name="title" value="<%= book.title %>" id="hidden">
+                    <input name="authors" value="<%= book.authors %>" id="hidden">
+                    <input name="isbn" value="<%= book.isbn %>" id="hidden">
+                    <input name="categories" value="<%= book.categories %>" id="hidden">
+                    <input name="imageLinks" value="<%= book.imageLinks %>" id="hidden">
+                    <input name="description" value="<%= book.description %>" id="hidden">
+                    <button id="btnBookShows">Select this book</button>
                 </form>
             </div>
         <% }) %> 
